@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #0B1220;
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(45, 212, 191, 0.06), transparent 40%),
+    radial-gradient(circle at 100% 30%, rgba(45, 212, 191, 0.04), transparent 45%);
+}
+
+/* Radar sweep signature element */
+.radar-ring {
+  position: relative;
+  border-radius: 9999px;
+  border: 1px solid rgba(45, 212, 191, 0.18);
+}
+
+.radar-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(45, 212, 191, 0.35) 0deg,
+    rgba(45, 212, 191, 0) 60deg,
+    rgba(45, 212, 191, 0) 360deg
+  );
+  animation: sweep 4s linear infinite;
+}
+
+@keyframes sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.blip {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #2DD4BF;
+  box-shadow: 0 0 12px rgba(45, 212, 191, 0.8);
+  animation: blip-pulse 2.4s ease-in-out infinite;
+}
+
+.blip-amber {
+  background: #F5A623;
+  box-shadow: 0 0 12px rgba(245, 166, 35, 0.8);
+}
+
+.blip-coral {
+  background: #F2545B;
+  box-shadow: 0 0 12px rgba(242, 84, 91, 0.8);
+}
+
+@keyframes blip-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .radar-sweep {
+    animation: none;
+  }
+  .blip {
+    animation: none;
+  }
+}
+
+/* Scanline texture on the input panel */
+.scan-panel {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(45, 212, 191, 0.03) 0px,
+    rgba(45, 212, 191, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+::selection {
+  background: rgba(45, 212, 191, 0.3);
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #2DD4BF;
+  outline-offset: 2px;
+}
