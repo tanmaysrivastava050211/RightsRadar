@@ -19,7 +19,7 @@ const RISK_STYLES = {
   High: { color: '#F2545B', label: 'HIGH RISK', pct: 90 },
 };
 
-const MAX_CHAR_LIMIT = 6000;
+const MAX_CHAR_LIMIT = 50000;
 
 const SCAN_STAGES = [
   'Preparing document...',

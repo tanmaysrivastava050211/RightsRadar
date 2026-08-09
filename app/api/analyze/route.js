@@ -116,7 +116,7 @@ export async function POST(request) {
               contents: [
                 {
                   role: 'user',
-                  parts: [{ text: text.slice(0, 6000) }],
+                  parts: [{ text: text.slice(0, 50000) }],
                 },
               ],
               generationConfig: {
